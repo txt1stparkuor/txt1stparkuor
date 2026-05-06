@@ -1,5 +1,3 @@
-# Hi 👋, I'm Duy
-
 ### 💻 Computer Science Student | Frontend & Backend Web Developer
 
 - 🎓 Studying at **Hanoi University of Industry**
