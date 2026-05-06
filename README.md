@@ -48,15 +48,6 @@
 ---
 
 ## 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=txt1stparkuor&show_icons=true&theme=tokyonight" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=txt1stparkuor&layout=compact&theme=tokyonight" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=txt1stparkuor&theme=tokyonight" />
-</p>
+![](https://github-readme-stats.vercel.app/api?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=txt1stparkuor&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
