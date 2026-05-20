@@ -34,9 +34,10 @@
 
 ### ⚙️ Backend & Database
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=spring&logoColor=white)
-![WebSocket / STOMP](https://img.shields.io/badge/WebSocket%20(STOMP)-010101?style=flat&logo=socket.io&logoColor=white)
+![WebSocket / STOMP](https://img.shields.io/badge/WebSocket%20(STOMP)-010101?style=flat&logo=socketdotio&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
 
 ---
 
