@@ -2,30 +2,40 @@ name: Generate GitHub Readme Stats
 
 on:
   schedule:
+    # Runs once a day at midnight UTC
     - cron: '0 0 * * *'
-  workflow_dispatch: 
+  workflow_dispatch: # Allows you to run this manually
+
+# Grants the action permission to push files back to your repo
+permissions:
+  contents: write
 
 env:
+  # Fixes GitHub's Node deprecation warning
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   generate-stats:
     runs-on: ubuntu-latest
     steps:
+      # 1. Checkout your profile repository
       - name: Checkout profile repo
         uses: actions/checkout@v4
 
+      # 2. Set up Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
 
+      # 3. Clone the github-readme-stats repository
       - name: Clone github-readme-stats
         run: git clone https://github.com/anuraghazra/github-readme-stats.git temp-stats-server
 
+      # 4. Start the server and fetch the cards in the same step
       - name: Start Server and Fetch SVG Cards
         env:
-          PAT: ${{ secrets.GH_PAT }}
+          PAT_1: ${{ secrets.GH_PAT }} # <--- THIS IS THE FIX
         run: |
           cd temp-stats-server
           npm install
@@ -46,6 +56,7 @@ jobs:
           # Fetch your top languages card
           curl "http://localhost:3000/api/top-langs/?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact" -o github-readme-stats/top-langs.svg
 
+      # 5. Commit and Push the updated SVGs back to your profile repository
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
