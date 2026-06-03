@@ -2,9 +2,11 @@ name: Generate GitHub Readme Stats
 
 on:
   schedule:
-    # Runs once a day at midnight UTC
     - cron: '0 0 * * *'
-  workflow_dispatch:
+  workflow_dispatch: 
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   generate-stats:
@@ -16,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Clone github-readme-stats
         run: git clone https://github.com/anuraghazra/github-readme-stats.git temp-stats-server
@@ -28,8 +30,8 @@ jobs:
           cd temp-stats-server
           npm install
           
-          # Start the server in the background
-          PORT=3000 npm start &
+          # Start the server using the correct express.js file
+          PORT=3000 node express.js &
           
           # Wait 15 seconds to give the server plenty of time to boot up
           sleep 15
