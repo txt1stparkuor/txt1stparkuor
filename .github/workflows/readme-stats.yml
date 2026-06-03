@@ -21,19 +21,21 @@ jobs:
       - name: Clone github-readme-stats
         run: git clone https://github.com/anuraghazra/github-readme-stats.git temp-stats-server
 
-      - name: Start local stats server
+      - name: Start Server and Fetch SVG Cards
         env:
           PAT: ${{ secrets.GH_PAT }}
         run: |
           cd temp-stats-server
           npm install
+          
           # Start the server in the background
           PORT=3000 npm start &
-          # Give the server 10 seconds to spin up
-          sleep 10
-
-      - name: Fetch SVG Cards
-        run: |
+          
+          # Wait 15 seconds to give the server plenty of time to boot up
+          sleep 15
+          
+          # Go back to the repository root directory
+          cd ..
           mkdir -p github-readme-stats
           
           # Fetch your main stats card
