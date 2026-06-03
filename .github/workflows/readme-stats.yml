@@ -1,0 +1,50 @@
+name: Generate GitHub Readme Stats
+
+on:
+  schedule:
+    # Runs once a day at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout profile repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone github-readme-stats
+        run: git clone https://github.com/anuraghazra/github-readme-stats.git temp-stats-server
+
+      - name: Start local stats server
+        env:
+          PAT: ${{ secrets.GH_PAT }}
+        run: |
+          cd temp-stats-server
+          npm install
+          # Start the server in the background
+          PORT=3000 npm start &
+          # Give the server 10 seconds to spin up
+          sleep 10
+
+      - name: Fetch SVG Cards
+        run: |
+          mkdir -p github-readme-stats
+          
+          # Fetch your main stats card
+          curl "http://localhost:3000/api?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false" -o github-readme-stats/stats.svg
+          
+          # Fetch your top languages card
+          curl "http://localhost:3000/api/top-langs/?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact" -o github-readme-stats/top-langs.svg
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add github-readme-stats/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update GitHub Readme Stats" && git push)
