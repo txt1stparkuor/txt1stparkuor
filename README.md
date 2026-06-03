@@ -49,6 +49,6 @@
 ---
 
 ## 📊 GitHub Stats
-![](https://github-readme-stats.vercel.app/api?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](./github-readme-stats/stats.svg)<br/>
 ![](https://github-readme-streak-stats.herokuapp.com/?user=txt1stparkuor&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=txt1stparkuor&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+![](./github-readme-stats/top-langs.svg)
