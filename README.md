@@ -49,6 +49,9 @@
 ---
 
 ## 📊 GitHub Stats
-![](./github-readme-stats/stats.svg)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=txt1stparkuor&theme=dark&hide_border=false)<br/>
-![](./github-readme-stats/top-langs.svg)
+<div align="center">
+    <img src="./github-readme-stats/stats.svg" alt="GitHub Stats" /><br/><br/>
+  <img src="./github-readme-stats/top-langs.svg" alt="Top Langs" /><br/><br/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=txt1stparkuor&theme=dark&hide_border=false" alt="GitHub Streak" />
+</div>
+
